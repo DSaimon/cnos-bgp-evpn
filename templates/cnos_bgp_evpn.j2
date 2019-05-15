@@ -2,7 +2,7 @@
 
 {% if hostvars[inventory_hostname]['rolename'] == "LEAF1" or hostvars[inventory_hostname]['rolename'] == "LEAF2" %}
 # Configure MP-BGP EVPN on Leaf Switches 1 and 2
-# 1. Configure the BGP router ID. This configuration must be the same on both vLAG peers.
+# Configure the BGP router ID. This configuration must be the same on both vLAG peers.
 router bgp {{item.bgp_as_number}}
 router-id {{item.router_id_leaf}}
 # Configure the redistribution of locally learned MAC addresses
