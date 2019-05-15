@@ -9,7 +9,7 @@ The Lenovo DCI BGP EVPN Configuration starts with:
 <li> Underlying Transport Network Configuration on Leaf Switches</li>
 <li> Underlying Transport Network Configuration on Route Reflectors</li>
 <li> MP-BGP EVPN Configuration on Leaf Switches</li>
-<li> MP-BGP EVPN Configuration on Route Reflectors </li>
+<li> MP-BGP EVPN Configuration on Route Reflectors </li><br />
 
 When deploying a distributed solution for a VXLAN network, Control Plane 
 information is exchanged between VXLAN Tunnel End Points (VTEPs) by using
@@ -17,7 +17,7 @@ Multi-protocol Border Gateway Protocol (MP-BGP) Ethernet Virtual Private
 Network (EVPN). MP-BGP EVPN offers a control plane through which to discover
 protocol based VTEP peers, and also presents a feature set that allows for 
 optimal forwarding of both west-east traffic and south-north traffic and 
-south-north traffic in the VXLAN network<br /><br />
+south-north traffic in the VXLAN network<br />
 
 VTEPs running MP-BGP EVPN support Control Plane functions which allows them to
 initiate MP-BGP EVPN routes advertisement from their local hosts, and receive
@@ -26,19 +26,19 @@ support data plane functions which allows them to encapsulate network traffic
 using VXLAN and then send the encapsulated traffic over the underlaying I
 network. When receiving VXLAN encapsulated packets from other VTEPs, they
 decapsulate the packets, encapsulate them using native Ethernet, and then 
-forward them to the host.<br /><br />
+forward them to the host.<br />
 
 Ansible role for DCI MP-BGP EVPN Configuration for CNOS Switches is a template
 driven playbook.
 
 The role configures all the Lenovo CNOS swithes in the MP-BGP EVPN Configuration
 
-MP-BGP EVPN role on Lenovo switches running CNOS support the following: <br /><br />
+MP-BGP EVPN role on Lenovo switches running CNOS support the following: <br />
 <li> Configure MP-BGP EVPN on Leaf Switches 1 and 2 </li>
 <li> Configure MP-BGP EVPN on Route Reflector 1 </li>
 <li> Configure MP-BGP EVPN on Route Reflector 2 </li>
 <li> Check the MP-BGP EVPN Configuration </li>
-<li> Check the information on Route Distinguishers (RDs) and Route Targets (RTs) for each VNI </li> <br /><br />
+<li> Check the information on Route Distinguishers (RDs) and Route Targets (RTs) for each VNI </li> <br />
 
 For more details, see [MP-BGP EVPN Configuration](
 https://systemx.lenovofiles.com/help/topic/com.lenovo.switchmgt.ansible.doc/Ansible_User_Guide_2-8_rev1.pdf).
