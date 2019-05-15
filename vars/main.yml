@@ -1,0 +1,14 @@
+---
+ cnos_bgp_evpn_data:
+ - {bgp_as_number: 400,
+router_id_leaf: "20.45.135.178",
+route_reflector_1: "172.16.250.1",
+interface_type: "loopback",
+interface_type_value: "2",
+route_reflector_2: "172.16.250.2",
+router_id_spine_1: "200.130.133.54",
+router_id_spine_2: "200.130.154.90",
+neighbor_leaf_1: "200.100.46.1",
+neighbor_leaf_2: "200.100.46.2",
+neighbor_leaf_3: "200.100.139.1",
+neighbor_leaf_4: "200.100.139.2"}

@@ -1,0 +1,122 @@
+# MP-BGP EVPN Configuration
+
+{% if hostvars[inventory_hostname]['rolename'] == "LEAF1" or hostvars[inventory_hostname]['rolename'] == "LEAF2" %}
+# Configure MP-BGP EVPN on Leaf Switches 1 and 2
+# 1. Configure the BGP router ID. This configuration must be the same on both vLAG peers.
+router bgp {{item.bgp_as_number}}
+router-id {{item.router_id_leaf}}
+# Configure the redistribution of locally learned MAC addresses
+address-family l2vpn evpn
+redistribute host-info
+exit
+# Configure the Route Reflectors as BGP neighbors.
+neighbor {{item.route_reflector_1}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+exit
+exit
+neighbor {{item.route_reflector_2}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+exit
+exit
+{% endif %}
+
+# check the automatically generated information that contains the RDs and RTs for each VNI
+show ip bgp statistics
+
+{% if hostvars[inventory_hostname]['rolename'] == "ROUTE_REFLECTOR_1" %}
+# Configure MP-BGP EVPN on Route Reflector 1
+# Configure a unique BGP router ID:
+router bgp {{item.bgp_as_number}}
+router-id {{item.router_id_spine_1}}
+# Configure L2VPN EVPN address family
+address-family l2vpn evpn
+exit
+# Configure the Leaf Switch1 as BGP neighbors and enable them as route reflector client
+neighbor {{item.neighbor_leaf_1}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+# Configure the Leaf Switch2 as BGP neighbors and enable them as route reflector client
+neighbor {{item.neighbor_leaf_2}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+# Configure the Leaf Switch3 as BGP neighbors and enable them as route reflector client
+{% if item.neighbor_leaf_3 != "" %}
+neighbor {{item.neighbor_leaf_3}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+{% endif %}
+# Configure the Leaf Switch4 as BGP neighbors and enable them as route reflector client
+{% if item.neighbor_leaf_4 != "" %}
+neighbor {{item.neighbor_leaf_4}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+{% endif %}
+{% endif %}
+
+{% if hostvars[inventory_hostname]['rolename'] == "ROUTE_REFLECTOR_2" %}
+# Configure MP-BGP EVPN on Route Reflector 2
+# Configure a unique BGP router ID:
+router bgp {{item.bgp_as_number}}
+router-id {{item.router_id_spine_2}}
+# Configure L2VPN EVPN address family
+address-family l2vpn evpn
+exit
+# Configure the Leaf Switch1 as BGP neighbors and enable them as route reflector client
+neighbor {{item.neighbor_leaf_1}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+# Configure the Leaf Switch2 as BGP neighbors and enable them as route reflector client
+neighbor {{item.neighbor_leaf_2}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+# Configure the Leaf Switch3 as BGP neighbors and enable them as route reflector client
+{% if item.neighbor_leaf_3 != "" %}
+neighbor {{item.neighbor_leaf_3}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+{% endif %}
+# Configure the Leaf Switch4 as BGP neighbors and enable them as route reflector client
+{% if item.neighbor_leaf_4 != "" %}
+neighbor {{item.neighbor_leaf_4}} remote-as {{item.bgp_as_number}}
+update-source {{item.interface_type}} {{item.interface_type_value}}
+bfd multihop
+address-family l2vpn evpn
+route-reflector-client
+exit
+exit
+{% endif %}
+{% endif %}
+# Check the MP-BGP EVPN Configuration
+show ip bgp l2vpn evpn

@@ -1,0 +1,8 @@
+# Common code to configure all switches in BGP EVPN Topology
+ - name: Module to Configure all Switches in BGP EVPN Topology
+   hosts: cnos-bgp-evpn
+   gather_facts: no
+   connection: network_cli
+
+   roles:
+    - cnos-bgp-evpn
