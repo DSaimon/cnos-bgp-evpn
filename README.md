@@ -1,4 +1,4 @@
-# Ansible Role:cnos-bgp-evpn – BGP EVPN Configuration on Lenovo CNOS
+# Ansible Role: cnos-bgp-evpn – BGP EVPN Configuration on Lenovo CNOS
 ---
 <add role description below>
 
