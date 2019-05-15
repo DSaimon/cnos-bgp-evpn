@@ -9,7 +9,7 @@ The Lenovo DCI BGP EVPN Configuration starts with:
 <li> Underlying Transport Network Configuration on Leaf Switches</li>
 <li> Underlying Transport Network Configuration on Route Reflectors</li>
 <li> MP-BGP EVPN Configuration on Leaf Switches</li>
-<li> MP-BGP EVPN Configuration on Route Reflectors </li><br /><br />
+<li> MP-BGP EVPN Configuration on Route Reflectors </li>
 
 When deploying a distributed solution for a VXLAN network, Control Plane 
 information is exchanged between VXLAN Tunnel End Points (VTEPs) by using
