@@ -4,7 +4,7 @@
 
 This role pertains to configuring BGP EVPN for Data Center Interconnect 
 (DCI) on switches running CNOS.
-The Lenovo DCI BGP EVPN Configuration starts with:<br /><br />
+The Lenovo DCI BGP EVPN Configuration starts with:
 <li> vLAG Configuration on Leaf Switches</li>
 <li> Underlying Transport Network Configuration on Leaf Switches</li>
 <li> Underlying Transport Network Configuration on Route Reflectors</li>
