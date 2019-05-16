@@ -1,8 +1,7 @@
 ---
 galaxy_info:
   author: Anil Kumar Muraleedharan
-  description: The cnos-bgp-evpn role facilitates seamless configuration of BGP EVPN for Data Center
-Interconnect (DCI) on switches running CNOS.
+  description: The cnos-bgp-evpn role facilitates seamless configuration of BGP EVPN for Data Center Interconnect (DCI) on switches running CNOS.
   company: Lenovo
   license: Apache 2.0
   min_ansible_version: 2.8
