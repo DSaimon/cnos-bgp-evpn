@@ -71,6 +71,7 @@ route-reflector-client
 exit
 exit
 {% endif %}
+exit
 {% endif %}
 
 {% if hostvars[inventory_hostname]['rolename'] == "ROUTE_REFLECTOR_2" %}
@@ -117,6 +118,7 @@ route-reflector-client
 exit
 exit
 {% endif %}
+exit
 {% endif %}
 # Check the MP-BGP EVPN Configuration
 show ip bgp l2vpn evpn
