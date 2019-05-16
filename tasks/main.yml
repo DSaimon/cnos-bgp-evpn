@@ -7,9 +7,9 @@
 - name: Applying CLI commands on BGP EVPN topology Switches
   cnos_template:
       host: "{{ inventory_hostname }}"
-      username: "{{ hostvars[inventory_hostname]['ansible_ssh_user']}}"
-      password: "{{ hostvars[inventory_hostname]['ansible_ssh_pass']}}"
-      deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
+      username: "{{ hostvars[inventory_hostname]['ansible_ssh_user'] }}"
+      password: "{{ hostvars[inventory_hostname]['ansible_ssh_pass'] }}"
+      deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       commandfile: ./commands/cnos_bgp_evpn_{{ inventory_hostname }}_commands.txt
       outputfile: ./results/cnos_bgp_evpn_{{ inventory_hostname }}_output.txt
   with_items: "{{ cnos_bgp_evpn_data }}"
