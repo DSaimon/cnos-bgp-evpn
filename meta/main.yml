@@ -16,6 +16,6 @@ galaxy_info:
     - lenovo
     - cnos
     - evpn
-    - bgp-evpn
+    - bgp
     - networking
 dependencies: []
